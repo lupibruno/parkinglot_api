@@ -3,27 +3,33 @@ import { VehiclesService } from './vehicles.service';
 import { CreateVehicleDto } from './dto/create-vehicle.dto';
 import { UpdateVehicleDto } from './dto/update-vehicle.dto';
 import { Vehicle } from './entities/vehicle.entity';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
+@ApiTags('vehicles')
 @Controller('vehicles')
 export class VehiclesController {
   constructor(private readonly vehiclesService: VehiclesService) {}
 
   @Post()
+  @ApiOperation({ summary: 'POST create Vehicle' })
   create(@Body() createVehicleDto: CreateVehicleDto) {
     return this.vehiclesService.create(createVehicleDto);
   }
 
   @Get()
+  @ApiOperation({ summary: 'GET all Vehicles' })
   findAll() {
     return this.vehiclesService.findAll();
   }
 
   @Get(':id')
+  @ApiOperation({ summary: 'GET Vehicle by ID' })
   findOne(@Param('id') id: string) {
     return this.vehiclesService.findOne(+id);
   }
 
   @Get()
+  @ApiOperation({ summary: 'GET all Vehicles by Establishments_ID' })
   async findAllByEstablishmentId(
     @Param('establishmentId') establishmentId: number,
   ): Promise<Vehicle[]> {
@@ -31,6 +37,7 @@ export class VehiclesController {
   }
 
   @Post('entry')
+  @ApiOperation({ summary: 'POST Vehicles entry' })
   async registerEntry(
     @Param('establishmentId') establishmentId: number,
     @Body() vehicleData: any,
@@ -43,6 +50,7 @@ export class VehiclesController {
   }
 
   @Post(':vehicleId/exit')
+  @ApiOperation({ summary: 'POST Vehicles exit by ID' })
   async registerExit(
     @Param('establishmentId') establishmentId: number,
     @Param('vehicleId') vehicleId: number,
@@ -55,11 +63,13 @@ export class VehiclesController {
   }
 
   @Patch(':id')
+  @ApiOperation({ summary: 'PATCH Update Vehicle by ID' })
   update(@Param('id') id: string, @Body() updateVehicleDto: UpdateVehicleDto) {
     return this.vehiclesService.update(+id, updateVehicleDto);
   }
 
   @Delete(':id')
+  @ApiOperation({ summary: 'DELETE remove vehicle by ID' })
   remove(@Param('id') id: string) {
     return this.vehiclesService.remove(+id);
   }
