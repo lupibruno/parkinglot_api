@@ -2,9 +2,10 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { EstablishmentsService } from './establishments.service';
 import { CreateEstablishmentDto } from './dto/create-establishment.dto';
 import { UpdateEstablishmentDto } from './dto/update-establishment.dto';
-import { ApiTags, ApiOperation } from '@nestjs/swagger/dist';
+import { ApiTags, ApiOperation, ApiBearerAuth } from '@nestjs/swagger/dist';
 
 @ApiTags('establishments')
+@ApiBearerAuth()
 @Controller('establishments')
 export class EstablishmentsController {
   constructor(private readonly establishmentsService: EstablishmentsService) {}
