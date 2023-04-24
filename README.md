@@ -46,7 +46,7 @@ URL: <gcr.io/drconsulta-challenge/parkinglot@sha256:1bb5fe9b5984f6427ea83e967d4a
 | MYSQL_PASSWORD | dev123 |
 | MYSQL_DATABASE | parkinglotapi |
 
-###Autenticação JwT
+### Autenticação JwT
 
 Como a grande maioria dos endpoints deve ser protegida por padrão, foi registrado um _auth.guard_ como uma guard global e usando o decorator `@Public()` é possível sinalizar qual controller não precisará de autenticação.
 
