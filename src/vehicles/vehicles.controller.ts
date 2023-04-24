@@ -28,7 +28,7 @@ export class VehiclesController {
     return this.vehiclesService.findOne(+id);
   }
 
-  @Get()
+  @Get('establishments/:establishmentId')
   @ApiOperation({ summary: 'GET all Vehicles by Establishments_ID' })
   async findAllByEstablishmentId(
     @Param('establishmentId') establishmentId: number,
