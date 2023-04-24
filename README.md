@@ -1,4 +1,4 @@
-#ParkingLot API
+# ParkingLot API
 ###### Desafio DrConsulta
 
 ##### API de gerenciamento de estacionamento usando o framework NestJS com TypeORM o banco de dados relacional MySQL e documentado via Swagger.
@@ -13,28 +13,28 @@ Todas as entidades e CRUDs do projeto foram criados via comandos `nest g` adotan
 
 Foram criado os dois CRUD e o controle de acesso é realizado via data e horário de entrada e saída dos veículos e verificado se foi pago ou não.
 
-#Inicialização do Projeto
+# Inicialização do Projeto
 
-###Instalando dependências
+### Instalando dependências
 
 `npm install -g @nestjs/cli`
 `npm install @nestjs/typeorm typeorm mysql2 @nestjs/swagger`
 `npm install --save @nestjs/jwt`
 
-####Scripts adicionais
+####S cripts adicionais
 
     "typeorm": "npm run build && npx typeorm-d dist/db/data-source.js",
     "migration:generate": "npm run typeorm -- migration:generate",
     "migration:run": "npm run typeorm -- migration:run",
     "migration:revert": "npm run typeorm -- migration:revert"
 
-###Rodando API
+### Rodando API
 
 A API roda ao utilizar o comando
 
 `npm run start:dev`
 
-###Banco de Dados
+### Banco de Dados
 
 Banco de dados relacional **MySQL** foi feito via imagem docker e o deploy feito na Google Cloud Platform. 
 URL: <gcr.io/drconsulta-challenge/parkinglot@sha256:1bb5fe9b5984f6427ea83e967d4a20fcf9055a93d1388611a4a3dc3702e0a006> [atualmente em revisão]
@@ -76,9 +76,9 @@ retorno similar à:
 }
 ```
 
-###Requisições HTTP:
+### Requisições HTTP:
 
-####Establishments:
+#### Establishments:
 
 A tabela abaixo descreve as rotas do controlador de estabelecimentos:
 
@@ -90,7 +90,7 @@ GET	| /establishments/:id	| Retorna um estabelecimento pelo ID	|Bearer Token
 PATCH	| /establishments/:id	| Atualiza um estabelecimento pelo ID |	Bearer Token
 DELETE |	/establishments/:id	|Deleta um estabelecimento pelo ID	|Bearer Token
 
-######Parâmetros de entrada (exemplo)
+###### Parâmetros de entrada (exemplo)
 ```
 {
   "id": 1,
@@ -103,7 +103,7 @@ DELETE |	/establishments/:id	|Deleta um estabelecimento pelo ID	|Bearer Token
 }
 ```
 
-####Vehicles:
+#### Vehicles:
 
 
 Método|	Rota|	Descrição|	Autenticação
@@ -117,7 +117,7 @@ POST|	/vehicles/:vehicleId/exit	|Registra a saída de um veículo em um estabele
 PATCH|	/vehicles/:id	|Atualiza um veículo pelo ID|	Bearer Token
 DELETE|	/vehicles/:id	|Deleta um veículo pelo ID	|Bearer Token
 
-######Parâmetros de entrada (exemplo)
+###### Parâmetros de entrada (exemplo)
 ```
 [
   {
@@ -145,7 +145,7 @@ DELETE|	/vehicles/:id	|Deleta um veículo pelo ID	|Bearer Token
 ]
 ```
 
-####Authentication
+#### Authentication
 
 Método |	Rota |	Parâmetros |	Descrição
 -------|-------|------------|-------------
@@ -157,10 +157,10 @@ A anotação @ApiTags('establishments') especifica que o grupo de tags é "estab
 A anotação @ApiBearerAuth() indica que as rotas requerem um token JWT de autenticação no cabeçalho da solicitação.
 
 
-#####Todas as requisições podem ser testadas via Swagger, Postman ou Terminal
+##### Todas as requisições podem ser testadas via Swagger, Postman ou Terminal
 
 
-####Conclusão
+#### Conclusão
 Apesar de trabalhar com Node, nunca tinha tido experiência ao criar uma API do zero utilizando as ferramentas NestJs e TypeORM nas quais aprendi a usar durante essa semana de desafio. Entrando a fundo na documentação das mesmas é possível encontrar um mar de possibilidades, praticidade e produtividade na qual me identifiquei muito em trabalhar, a aplicação não está completa como gostaria porém fico contente com o resultado de poucas horas de experiência. 
 
 Me desafiei a tentar realizar a parte de DevOps onde nunca tive contato, o deploy foi feito porém ainda há ajustes à serem feitos para funcionalidade completa, mesmo assim o aprendizado valeu a pena.
