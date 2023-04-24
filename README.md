@@ -11,6 +11,8 @@ A arquitetura sugerida pelo NestJS e aplicada no projeto é uma _Organização B
 
 Todas as entidades e CRUDs do projeto foram criados via comandos `nest g` adotando uma projeção modular e escalável totalmente organizada.
 
+Foram criado os dois CRUD e o controle de acesso é realizado via data e horário de entrada e saída dos veículos e verificado se foi pago ou não.
+
 #Inicialização do Projeto
 
 ###Instalando dependências
@@ -45,7 +47,7 @@ Banco de dados relacional **MySQL** foi feito via imagem docker e o deploy feito
 
 ###Autenticação JwT
 
-Como a grande maioria dos endpoints deve ser protegida por padrão, foi registrado um _auth.guard_ como uma guard global e usando o decorator `@Public()` na parte superior de cada controlador para sinalizar quais rotas devem ser públicas.
+Como a grande maioria dos endpoints deve ser protegida por padrão, foi registrado um _auth.guard_ como uma guard global e usando o decorator `@Public()` é possível sinalizar qual controller não precisará de autenticação.
 
 A única rota não-protegida é a de login, necessitando um dos dois logins padrões do código para obter acesso às requisições restantes via Token.
 
@@ -155,3 +157,9 @@ A anotação @ApiBearerAuth() indica que as rotas requerem um token JWT de auten
 
 
 #####Todas as requisições podem ser testadas via Swagger, Postman ou Terminal
+
+
+####Conclusão
+Apesar de trabalhar com Node, nunca tinha tido experiência ao criar uma API do zero utilizando as ferramentas NestJs e TypeORM nas quais aprendi a usar durante essa semana de desafio. Entrando a fundo na documentação das mesmas é possível encontrar um mar de possibilidades, praticidade e produtividade na qual me identifiquei muito em trabalhar, a aplicação não está completa como gostaria porém fico contente com o resultado de poucas horas de experiência. 
+
+Me desafiei a tentar realizar a parte de DevOps onde nunca tive contato, o deploy foi feito porém ainda há ajustes à serem feitos para funcionalidade completa, mesmo assim o aprendizado valeu a pena.
