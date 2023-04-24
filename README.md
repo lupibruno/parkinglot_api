@@ -13,6 +13,19 @@ Todas as entidades e CRUDs do projeto foram criados via comandos `nest g` adotan
 
 #Inicialização do Projeto
 
+###Instalando dependências
+
+`npm install -g @nestjs/cli`
+`npm install @nestjs/typeorm typeorm mysql2 @nestjs/swagger`
+`npm install --save @nestjs/jwt`
+
+####Scripts adicionais
+
+    "typeorm": "npm run build && npx typeorm-d dist/db/data-source.js",
+    "migration:generate": "npm run typeorm -- migration:generate",
+    "migration:run": "npm run typeorm -- migration:run",
+    "migration:revert": "npm run typeorm -- migration:revert"
+
 ###Rodando API
 
 A API roda ao utilizar o comando
