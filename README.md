@@ -21,7 +21,7 @@ Foram criado os dois CRUD e o controle de acesso é realizado via data e horári
 `npm install @nestjs/typeorm typeorm mysql2 @nestjs/swagger`
 `npm install --save @nestjs/jwt`
 
-####S cripts adicionais
+#### Scripts adicionais
 
     "typeorm": "npm run build && npx typeorm-d dist/db/data-source.js",
     "migration:generate": "npm run typeorm -- migration:generate",
