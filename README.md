@@ -36,7 +36,8 @@ A API roda ao utilizar o comando
 
 ###Banco de Dados
 
-Banco de dados relacional **MySQL** foi feito via imagem docker e o deploy feito na Google Cloud Platform. [Clique aqui.](gcr.io/drconsulta-challenge/parkinglot@sha256:1bb5fe9b5984f6427ea83e967d4a20fcf9055a93d1388611a4a3dc3702e0a006) [atualmente em revisão]
+Banco de dados relacional **MySQL** foi feito via imagem docker e o deploy feito na Google Cloud Platform. 
+URL: <gcr.io/drconsulta-challenge/parkinglot@sha256:1bb5fe9b5984f6427ea83e967d4a20fcf9055a93d1388611a4a3dc3702e0a006> [atualmente em revisão]
 
 | PORT | 3306 |
 |--|--|
