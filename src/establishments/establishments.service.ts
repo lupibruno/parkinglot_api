@@ -7,16 +7,20 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class EstablishmentsService {
-  constructor(@InjectRepository(Establishment) private establishmentsRepository: Repository<Establishment>,
+  constructor(
+    @InjectRepository(Establishment)
+    private establishmentsRepository: Repository<Establishment>,
   ) {}
   create(createEstablishmentDto: CreateEstablishmentDto) {
-    const newEstablishment = this.establishmentsRepository.create(createEstablishmentDto)
+    const newEstablishment = this.establishmentsRepository.create(
+      createEstablishmentDto,
+    );
 
     return this.establishmentsRepository.save(newEstablishment);
   }
 
   findAll() {
-    return this.establishmentsRepository.find(); 
+    return this.establishmentsRepository.find();
   }
 
   findOne(id: number) {
@@ -26,7 +30,10 @@ export class EstablishmentsService {
   async update(id: number, updateEstablishmentDto: UpdateEstablishmentDto) {
     const establishment = await this.findOne(id);
 
-    return this.establishmentsRepository.save({ ...establishment, ...updateEstablishmentDto });
+    return this.establishmentsRepository.save({
+      ...establishment,
+      ...updateEstablishmentDto,
+    });
   }
 
   async remove(id: number) {
