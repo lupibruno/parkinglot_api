@@ -7,12 +7,12 @@ import { Establishment } from 'src/establishments/entities/establishment.entity'
 import { EstablishmentsModule } from 'src/establishments/establishments.module';
 
 @Module({
-  imports: [ 
-    TypeOrmModule.forFeature([Vehicle, Establishment]), 
-    forwardRef(() => EstablishmentsModule)
+  imports: [
+    TypeOrmModule.forFeature([Vehicle, Establishment]),
+    forwardRef(() => EstablishmentsModule),
   ],
   controllers: [VehiclesController],
   providers: [VehiclesService],
-  exports: [VehiclesService]
+  exports: [VehiclesService],
 })
 export class VehiclesModule {}
